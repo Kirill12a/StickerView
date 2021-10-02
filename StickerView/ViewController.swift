@@ -19,17 +19,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var addTask: UIButton!
     @IBOutlet weak var viewAddTask: UIView!
     
-    
-   
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
+         
         myTableView.delegate = self
         myTableView.dataSource = self
-        
         
         viewAddTask.isHidden = openMenu
         trashButton.isHidden = hidenTrash
@@ -41,12 +36,6 @@ class ViewController: UIViewController {
         if let data=UserDefaults.standard.object(forKey: "time") as? [Int]{
             numberTasks=data
         }
-        
-        
-     
-        
-        
-        
     }
     
     // нажатие на карандашик
@@ -54,10 +43,9 @@ class ViewController: UIViewController {
         openMenu.toggle()
         viewAddTask.isHidden = openMenu
         tfWriteTask.text = ""
-
+        
         
     }
-    
     
     @IBAction func addTask(_ sender: Any) { // кнопка которую нажимаем при отправке задачи
         
@@ -99,14 +87,13 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-    
+        
         var uniq = Array(Set(numberTasks))
         uniq.sort()
         uniq.removeFirst()
         let cell = myTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ViewCell
         cell.task?.text = " \(itemsArray[indexPath.row])"
         cell.numberTasks?.text = "\(uniq[indexPath.row])"
-//        cell.numberTasks.text="\(numberTasks[indexPath.row])"
         return cell
     }
     
