@@ -9,7 +9,7 @@ import UIKit
 
 class ViewCell: UITableViewCell {
 
-    @IBOutlet weak var numberTasks: UILabel!
-    @IBOutlet weak var task: UILabel!
+    @IBOutlet weak var numberTasks: UILabel! // номер
+    @IBOutlet weak var task: UILabel! // задача
 
 }

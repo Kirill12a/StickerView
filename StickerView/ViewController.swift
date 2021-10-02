@@ -48,17 +48,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addTask(_ sender: Any) { // кнопка которую нажимаем при отправке задачи
-        
         var uniq = Array(Set(numberTasks))
         uniq.sort()
         uniq.removeFirst()
-        
-        
         openMenu.toggle()
-        guard tfWriteTask.text != "" else {
+        guard tfWriteTask.text != "" else { // проверка на наличие текста
             openMenu.toggle()
             viewAddTask.isHidden = openMenu
-            print("errir")
+            print("error")
             return}
         hidenTrash.toggle()
         viewAddTask.isHidden = openMenu
